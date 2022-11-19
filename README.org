@@ -1,2 +1,11 @@
-* todo list
-** change dockerimages to pull from github
+
+* setup
+
+#+begin_src
+git clonehttps://github.com/seanvert/app-escrita.git
+cd app-escrita
+git clone https://github.com/seanvert/cliente-escrita.git
+git clone https://github.com/seanvert/servidor-escrita.git
+docker-compose -f docker-compose.dev.yml up --build
+#+end_src
+
