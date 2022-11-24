@@ -1,7 +1,7 @@
 version: '0.1'
 services:
   cliente-escrita:
-    image: cliente_escrita:latest
+    image: cliente-escrita:dev
     environment:
       - REACT_APP_DB_HOST_TEXTS=http://192.168.0.100:8000/texts
       - REACT_APP_DB_HOST_USERS=http://192.168.0.100:8000/users
@@ -31,6 +31,8 @@ services:
       - type: bind
         source: ../servidor-escrita/
         target: /app
+    environment:
+      CORS_ALLOW_URL: http://192.168.0.100:3000
     network_mode: "host"
     ports:
       - 8000:8000
