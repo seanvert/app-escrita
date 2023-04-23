@@ -1,0 +1,47 @@
+version: '0.1'
+services:
+  cliente-escrita:
+    image: cliente-escrita:dev
+    environment:
+      - REACT_APP_DB_LOCAL_HOST=mongodb://localhost:27017
+      - REACT_APP_URL=http://192.168.0.100:3000
+      - REACT_APP_DB_HOST_TEXTS=http://192.168.0.100:8000/texts
+      - REACT_APP_DB_HOST_EXERCISES=http://192.168.0.100:8000/exercises
+      - REACT_APP_DB_HOST_USERS=http://192.168.0.100:8000/users
+      - REACT_APP_AUTH_SIGNUP=http://192.168.0.100:8000/auth/signup
+      - REACT_APP_AUTH_LOGIN=http://192.168.0.100:8000/auth/login
+      - REACT_APP_AUTH_LOGOUT=http://192.168.0.100:8000/auth/logout
+    volumes:
+      - type: bind
+        source: ../cliente-escrita/
+        target: /app
+    network_mode: "host"
+  mongo:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
+    network_mode: "host"
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+  servidor-escrita:
+    image: servidor-escrita:latest
+    volumes:
+      - type: bind
+        source: ../servidor-escrita/
+        target: /app
+    environment:
+      CORS_ALLOW_URL: http://192.168.0.100:3000
+      URL_HOME: http://192.168.0.100:3000
+    network_mode: "host"
+    ports:
+      - 8000:8000
+volumes:
+  myapp:
+  mongodb:
+  mongodb_config:
+  myserver:
