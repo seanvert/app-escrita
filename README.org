@@ -6,13 +6,10 @@ git clone https://github.com/seanvert/app-escrita.git
 cd app-escrita
 #+end_src
 
-edit docker-compose environment host variables
+** edit docker-compose environment host variables
 
 #+begin_src
 git clone https://github.com/seanvert/cliente-escrita.git
 git clone https://github.com/seanvert/servidor-escrita.git
 docker-compose -f docker-compose.dev.yml up --build
 #+end_src
-
-
-
