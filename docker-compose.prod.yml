@@ -15,7 +15,8 @@ services:
       - type: bind
         source: ../cliente-escrita/
         target: /app
-    network_mode: "host"
+    networks:
+      - host 
   mongo:
     image: mongo:latest
     restart: always
@@ -24,7 +25,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     ports:
       - 27017:27017
-    network_mode: "host"
+    networks: 
+      - host
     volumes:
       - mongodb:/data/db
       - mongodb_config:/data/configdb
@@ -37,7 +39,8 @@ services:
     environment:
       CORS_ALLOW_URL: http://192.168.0.100:3000
       URL_HOME: http://192.168.0.100:3000
-    network_mode: "host"
+    networks: 
+      - host
     ports:
       - 8000:8000
 volumes:
