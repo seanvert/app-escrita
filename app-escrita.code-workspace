@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../cliente-escrita"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../servidor-escrita"
+		},
+		{
+			"path": "../selenium-escrita"
+		},
+		{
+			"path": "../corpus-palavras"
+		}
+	],
+	"settings": {}
+}
