@@ -13,7 +13,7 @@ services:
       - REACT_APP_AUTH_LOGOUT=http://192.168.0.100:8000/auth/logout
     volumes:
       - type: bind
-        source: ../cliente-escrita/
+        source: ./cliente-escrita/
         target: /app
     network_mode: "host"
   mongo:
@@ -32,7 +32,7 @@ services:
     image: servidor-escrita:latest
     volumes:
       - type: bind
-        source: ../servidor-escrita/
+        source: ./servidor-escrita/
         target: /app
     environment:
       CORS_ALLOW_URL: http://192.168.0.100:3000

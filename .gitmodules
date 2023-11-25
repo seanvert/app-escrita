@@ -1,0 +1,9 @@
+[submodule "servidor-escrita"]
+	path = servidor-escrita
+	url = https://github.com/seanvert/servidor-escrita.git
+[submodule "cliente-escrita"]
+	path = cliente-escrita
+	url = https://github.com/seanvert/cliente-escrita.git
+[submodule "selenium-escrita"]
+	path = selenium-escrita
+	url = https://github.com/seanvert/selenium-escrita.git
